@@ -36,17 +36,17 @@ class UsersController extends Controller
 
         if($user->save())
         {
-            $alert_toast = 
+            $alert_toast =
             [
                 'title' => 'Operation Successful : ',
                 'text'  => 'User Successfully Added.',
                 'type'  => 'success',
             ];
-            
+
         }
         else
         {
-            $alert_toast = 
+            $alert_toast =
             [
                 'title' => 'Operation Failed : ',
                 'text'  => 'A Problem Occurred While Adding a User.',
@@ -60,7 +60,7 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        
+
         $user = User::findOrFail($id);
         return view('admin.users.edit', compact('user'));
     }
@@ -85,7 +85,7 @@ class UsersController extends Controller
 
         if($user->save())
         {
-            $alert_toast = 
+            $alert_toast =
             [
                 'title' => 'Operation Successful : ',
                 'text'  => 'User Successfully Updated.',
@@ -94,7 +94,7 @@ class UsersController extends Controller
         }
         else
         {
-            $alert_toast = 
+            $alert_toast =
             [
                 'title' => 'Operation Failed : ',
                 'text'  => 'A Problem Update The User.',
@@ -111,7 +111,7 @@ class UsersController extends Controller
         $user = User::findOrFail($request->id);
         if($user->delete())
         {
-            $alert_toast = 
+            $alert_toast =
             [
                 'title' =>  'Operation Successful : ',
                 'text'  =>  'User Successfully Deleted.',
@@ -120,7 +120,7 @@ class UsersController extends Controller
         }
         else
         {
-            $alert_toast = 
+            $alert_toast =
             [
                 'title' => 'Operation Failed : ',
                 'text'  => 'A Problem Deleting The User.',
@@ -132,5 +132,5 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
 
- 
+
 }

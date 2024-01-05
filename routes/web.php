@@ -1,4 +1,5 @@
 <?php
+use \App\Http\Controllers\Admin\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,11 @@ Route::get('/', function () {
 
 // Admin Routes
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin', 'middleware' => 'auth'], function(){
-    // Index   
+    // Index
     Route::get('/',                      'HomeController@index')->name('.index');
     // User Index
     Route::get('/users',                 'UsersController@index')->name('.users.index');
-    // User Create 
+    // User Create
     Route::get('/users/create',          'UsersController@create')->name('.users.create');
     Route::post('/users/store',          'UsersController@store')->name('.users.store');
     // User Edit
@@ -39,10 +40,28 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin', 'mid
 
 // Auth Routes
 Route::group(['namespace' => 'Auth', 'as' => 'auth'], function(){
-    // Login Page 
+    // Login Page
     Route::get('/login',     'LoginController@showLoginForm')->name('.login');
     // Login Post
     Route::post('/login',    'LoginController@login')->name('.login');
     // Logout
     Route::get('/logout',    'LoginController@logout')->name('.logout');
+});
+
+
+
+
+
+Route::get('admin/teachers', [TeacherController::class, 'index'])->name('teacher.index');
+Route::get('admin/teachers/create', [TeacherController::class, 'create'])->name('teacher.create');
+Route::post('admin/teachers/store', [TeacherController::class, 'store'])->name('teacher.store');
+Route::get('admin/teachers/edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
+//Route::put('admin/teachers/update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
+Route::delete('admin/teachers/destroy/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
+
+Route::post('admin/teachers/update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
+
+
+Route::get('/test', function () {
+    return 'Test Route';
 });

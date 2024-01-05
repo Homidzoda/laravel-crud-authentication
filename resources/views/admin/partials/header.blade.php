@@ -37,10 +37,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{route('admin.users.edit', Auth::id())}}" class="btn btn-default btn-flat">Profile Settings</a>
+                  <a href="{{route('admin.users.edit', Auth::id())}}" class="btn btn-default btn-flat">Настройка</a>
                 </div>
                 <div class="pull-right">
-                  <a href="{{route('auth.logout')}}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{route('auth.logout')}}" class="btn btn-default btn-flat">Выход</a>
                 </div>
               </li>
             </ul>
